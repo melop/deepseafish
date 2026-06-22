@@ -1,0 +1,2 @@
+cat Relax_*/* | awk '{if ($5<0.05 && $9>1) {inten=inten+1} else if ($5<0.05 && $9<1) {rlx=rlx+1} else {other=other+1}} END{print "intensified:"inten" relaxed:"rlx" other:"other" sum:"inten+rlx+other}'
+cat rjtRelax_*/* | awk '{if ($5<0.05 && $9>1) {inten=inten+1} else if ($5<0.05 && $9<1) {rlx=rlx+1} else {other=other+1}} END{print "intensified:"inten" relaxed:"rlx" other:"other" sum:"inten+rlx+other}'

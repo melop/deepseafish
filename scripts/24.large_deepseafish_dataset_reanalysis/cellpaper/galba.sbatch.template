@@ -1,0 +1,54 @@
+#!/usr/bin/bash
+#SBATCH -p blade,gpu,himem,hugemem
+#SBATCH -c 2
+
+galbasif=/public4/software/galba/galba.sif
+prot=/public4/group_crf/home/cuirf/nothos/annotations/ensembl/all.prot.fa
+sp=`realpath .`
+sp=`basename $sp`
+genome=`realpath ../../genomes/$sp/*.fna`
+arrconfigfolders=( cgp extrinsic model parameters profile )
+
+echo annotating $genome
+
+if [ ! -f galba.done ]; then
+
+#remove space in genome file
+zcat -f $genome | cut -d" " -f1 > genome.fa
+
+mkdir -p config/species/
+chmod -R 777 config
+echo Started `date`
+
+
+
+source /public/apps/miniconda3/etc/profile.d/conda.sh
+conda activate funannotate1.8.15
+module load apptainer
+
+export AUGUSTUS_CONFIG_PATH=`pwd`/config
+
+cmd="singularity exec --bind /public4 $galbasif"
+$cmd cp -r /opt/Augustus/config/species/generic config/species/
+for i in "${arrconfigfolders[@]}"; do
+$cmd cp -r /opt/Augustus/config/$i config/
+done
+
+$cmd galba.pl --genome=genome.fa --gff3 \
+        --species=$sp  \
+        --prot_seq=$prot \
+        --threads ${SLURM_CPUS_PER_TASK} \
+        --AUGUSTUS_CONFIG_PATH=$AUGUSTUS_CONFIG_PATH && touch galba.done
+else
+   echo "Galba previously done"
+fi
+
+
+echo Ended `date`
+
+arrDelFiles=( train2.gb.test	train.gb.train.test	train2.gb.train.test	train.gb.test	traingenes.good.gtf	hc.gff	miniprothint.gff	miniprot_trainingGenes.gtf	hintsfile.gff	miniprot_trainingGenes.gff	augustus.hints.tmp.gtf	train.gb.train.train	train.gb.train	train.gb	train.ff.gb	train2.gb.train.train	train2.gb.train	train2.gb	train.ff.gb.train	genome.fa	miniprot_representatives.gtf	miniprot_representatives.gff	prot_hintsfile.aln2hints.temp.gff	genome.mpi	protein_alignment_miniprot.gff	miniprot.gff	protein_alignment_miniprot.aln )
+#clean up
+rm -f genome.fa
+for i in "${arrDelFiles[@]}"; do
+	rm -f GALBA/$i
+done

@@ -1,0 +1,3 @@
+taxon	count
+Pseudoliparis	1
+root	20

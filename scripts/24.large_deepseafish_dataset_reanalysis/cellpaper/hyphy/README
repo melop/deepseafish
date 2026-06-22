@@ -1,0 +1,2 @@
+For each clade, set up the variables in the sbatch file and the hyphyrelax.php file to run.
+Specific HYPHY version is called for here, please check config.php

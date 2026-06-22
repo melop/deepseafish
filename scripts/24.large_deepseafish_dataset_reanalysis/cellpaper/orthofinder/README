@@ -1,0 +1,5 @@
+This pipeline adopts the Orthofinder 3 new procedure, where "high quality" proteomes were used to estimate an initial set of orthogroups.
+The phylogenetically hierarchical orthogroup at node N1 (corresponding to the teleost node after WGD) was picked to define orthogroups.
+Then, other proteomes were assigned to these orthogroups with the "assign" feature of orthofinder 3.
+
+Finally, species containing paralogs were masked in the ortholog table with NA.

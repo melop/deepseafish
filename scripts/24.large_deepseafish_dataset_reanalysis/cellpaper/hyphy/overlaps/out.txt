@@ -1,0 +1,20 @@
+[1] -0.07441442
+[1] -0.22356
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 8, p-value = 0.0001907
+alternative hypothesis: true location shift is not equal to 0
+
+[1] -0.2000368
+[1] -0.3877089
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 5, p-value = 7.629e-05
+alternative hypothesis: true location shift is not equal to 0
+
+null device 
+          1 

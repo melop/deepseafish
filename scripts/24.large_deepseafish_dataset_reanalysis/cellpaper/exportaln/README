@@ -1,0 +1,9 @@
+Exports cds alignments, perform clean-up with Translator X + Gblocks, and use the AU test implemented in CONSEL to reject gene trees violating species phylogenies.
+Label foreground clades and background clades to prepare for relax tests.
+
+Set paths to 3rd-party software in config.php
+ret_DNA.fasta.gz contains all aligned CDS sequences prior to any trimming, useful for obtaining the AA positions after alignment
+ret_improved_cleanDNA.fasta.gz contains all aligned and cleaned sequences, which should be used for phylogenies and downstream analysis.
+
+Automatic cleaning is necessary to minimize false positive results in selection analyses, but this process may be over-aggressive and thus is conservative.
+For key candidate genes, it is recommended to grep the gene from ret_DNA.fasta.gz and perform manual cleaning.

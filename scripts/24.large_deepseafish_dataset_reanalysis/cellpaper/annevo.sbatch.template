@@ -1,0 +1,38 @@
+#!/usr/bin/bash
+#SBATCH -p gpu
+#SBATCH -c 10
+#SBATCH --mem=1G
+
+source /public/apps/miniconda3/etc/profile.d/conda.sh
+conda activate /public4/software/conda_env/annevo2.2.2
+ANNSCRIPT=/public4/software/annevo/ANNEVO
+
+CPU=$SLURM_CPUS_PER_TASK
+
+sp=`realpath .`
+sp=`basename $sp`
+genome=`realpath ../../genomes/$sp/*.fna`
+model="/public4/software/annevo/ANNEVO/ANNEVO_model/ANNEVO_Vertebrate_other.pt";
+
+echo annotating $genome
+
+if [ ! -f annevo.done ]; then
+
+#remove space in genome file
+zcat -f $genome | cut -d" " -f1 > genome.fa
+mkdir -p tmp
+
+python $ANNSCRIPT/annotation.py --genome genome.fa --tmp_path ./tmp --model_path $model --output genes.gff --threads $CPU && touch annevo.done
+
+sp=`pwd`
+sp=`basename $sp`
+genome=genome.fa
+tooldir=/public/apps/miniconda3/envs/funannotate/opt/pasa-2.5.2/misc_utilities/
+gff=genes.gff
+
+$tooldir/gff3_file_to_proteins.pl $gff $genome cDNA > $sp.full.mrna.fa
+$tooldir/gff3_file_to_proteins.pl $gff $genome prot > $sp.full.prot.fa
+$tooldir/gff3_file_to_proteins.pl $gff $genome CDS > $sp.full.cds.fa
+
+
+fi
