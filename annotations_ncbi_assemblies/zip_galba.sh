@@ -10,7 +10,12 @@ for i in ../../../cellpaper/galba/*/GALBA/galba.gff3; do
 	minsize=$((1024*10))
 if [ $filesize -gt $minsize ]
 then
+	if [ ! -f galba/$sp.galba.gff3.gz ]; then
+	echo copy $i
 	cat $i | gzip -c > galba/$sp.galba.gff3.gz
+	else 
+	echo skip $i
+	fi
 else 
     echo "$i too small"
 fi

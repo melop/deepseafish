@@ -1,0 +1,40 @@
+[1] "Bathypterois_sp"         "Coryphaenoides_yaquinae"
+[3] "Pseudoliparis"          
+[1] -0.1449562
+[1] -0.1449562
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 1, p-value = 1
+alternative hypothesis: true location shift is not equal to 0
+
+[1] 0.005890027
+[1] 0.005890027
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 2, p-value = 1
+alternative hypothesis: true location shift is not equal to 0
+
+[1] -0.1641136
+[1] -0.1641136
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 1, p-value = 1
+alternative hypothesis: true location shift is not equal to 0
+
+[1] 0.01506942
+[1] 0.01506942
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 2, p-value = 1
+alternative hypothesis: true location shift is not equal to 0
+
+null device 
+          1 

@@ -1,0 +1,38 @@
+=============Before matching=========
+	Asymptotic two-sample Kolmogorov-Smirnov test
+
+data:  arrAAsubRelax and arrAAsubIntense
+D = 0.044492, p-value = 0.4907
+alternative hypothesis: two-sided
+
+======= Start matching======
+Converged at iteration 1
+KS stat: 0.0445, p-value: 0.4907
+Kept: A = 696 / 696, B = 708 / 708
+=============Before matching=========
+	Asymptotic two-sample Kolmogorov-Smirnov test
+
+data:  arrAAsubRelax and arrAAsubIntense
+D = 0.034116, p-value = 0.1536
+alternative hypothesis: two-sided
+
+======= Start matching======
+Priority preserve: 696 in A, 708 in B
+Converged at iteration 2
+KS stat: 0.0301, p-value: 0.2719
+Kept: A = 2407 / 2419, B = 2015 / 2025
+
+	Asymptotic two-sample Kolmogorov-Smirnov test
+
+data:  oMatched$A and oMatched$B
+D = 0.045674, p-value = 0.4572
+alternative hypothesis: two-sided
+
+
+	Asymptotic two-sample Kolmogorov-Smirnov test
+
+data:  oMatched$A and oMatched$B
+D = 0.030142, p-value = 0.2719
+alternative hypothesis: two-sided
+
+excluded genes: 22 

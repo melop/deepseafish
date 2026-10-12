@@ -1,0 +1,46 @@
+Anoplogaster_cornuta  In exclusion list:  22 , before exclusion: 4444 , after:  4422 , excluded:  22 
+Bassozetus  In exclusion list:  465 , before exclusion: 11660 , after:  11195 , excluded:  465 
+DeepseaAulopiformes  In exclusion list:  114 , before exclusion: 11583 , after:  11469 , excluded:  114 
+DeepseaBeryciformes  In exclusion list:  213 , before exclusion: 9048 , after:  8835 , excluded:  213 
+DeepseaCoryphaenoides  In exclusion list:  143 , before exclusion: 8757 , after:  8614 , excluded:  143 
+Ilyophis  In exclusion list:  462 , before exclusion: 8523 , after:  8061 , excluded:  462 
+Pachycara  In exclusion list:  250 , before exclusion: 11613 , after:  11363 , excluded:  250 
+Pseudoliparis  In exclusion list:  463 , before exclusion: 11504 , after:  11041 , excluded:  463 
+[1] -0.1146862
+[1] -0.284127
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 3, p-value = 2.384e-06
+alternative hypothesis: true location shift is not equal to 0
+
+[1] -0.1362878
+[1] -0.2883605
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 54, p-value = 0.002508
+alternative hypothesis: true location shift is not equal to 0
+
+[1] -0.1755591
+[1] -0.3206944
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 3, p-value = 1.192e-06
+alternative hypothesis: true location shift is not equal to 0
+
+[1] -0.2068289
+[1] -0.3263018
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 54, p-value = 0.002508
+alternative hypothesis: true location shift is not equal to 0
+
+null device 
+          1 

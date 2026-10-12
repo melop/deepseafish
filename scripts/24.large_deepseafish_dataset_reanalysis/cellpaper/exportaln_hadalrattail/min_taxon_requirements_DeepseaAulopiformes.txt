@@ -1,0 +1,3 @@
+taxon	count
+DeepseaAulopiformes	1
+root	20

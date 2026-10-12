@@ -1,0 +1,4 @@
+taxon	count
+Bathypterois_sp	1
+DeepseaAulopiformes	2
+root	20

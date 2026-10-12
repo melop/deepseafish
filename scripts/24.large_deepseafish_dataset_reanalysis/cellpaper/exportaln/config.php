@@ -29,6 +29,7 @@ define("RAXML_PATH","/public/software/raxml/standard-RAxML/raxmlHPC-PTHREADS-AVX
 define("CONSEL_PATH","/public4/software/consel/src");
 define("HYPHY_PATH","/data/software/hyphy-2.5.32/build/");
 define("AU_TEMP_PATH","./TMP/");
+define("BRLEN_TEMP_PATH","./brlentmp/");
 define("HYPHY_TEMP_PATH","./hyphytmp/");
 
 

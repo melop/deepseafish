@@ -1,0 +1,10 @@
+N1.HOG0009250	149	I	Pachycara:I=1,M=1;Anoplogaster:I=1;	T=44
+N1.HOG0007360	27	S	Pachycara:K=1,S=1;Anoplogaster:S=1;	K=50,N=12,R=1
+N1.HOG0007360	29	S	Pachycara:T=1,S=1;Anoplogaster:S=1;	T=63
+N1.HOG0021846	302	V	Pachycara:V=1,F=1;Anoplogaster:V=1;	F=66,L=2
+N1.HOG0023429	283	I	Pachycara:I=1,T=1;Anoplogaster:I=1;	T=65
+N1.HOG0015761	0	R	Pachycara:R=1;Anoplogaster:R=1;	P=32,A=1,S=1
+N1.HOG0015761	19	G	Pachycara:G=1;Anoplogaster:G=1;	D=32,E=1,A=1,S=1
+N1.HOG0015761	20	R	Pachycara:R=1;Anoplogaster:R=1;	K=34
+N1.HOG0015761	31	K	Pachycara:K=1;Anoplogaster:K=1;	R=31
+N1.HOG0009991	55	A	Pachycara:T=1,A=1;Anoplogaster:A=1;	T=68

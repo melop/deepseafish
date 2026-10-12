@@ -1,0 +1,3 @@
+taxon	count
+Bassozetus	1
+root	20

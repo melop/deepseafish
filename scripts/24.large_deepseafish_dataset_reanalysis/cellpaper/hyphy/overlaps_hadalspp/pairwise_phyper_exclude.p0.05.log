@@ -1,0 +1,41 @@
+Bathypterois_sp  In exclusion list:  616 , before exclusion: 9376 , after:  8760 , excluded:  616 
+Coryphaenoides_yaquinae  In exclusion list:  32 , before exclusion: 6055 , after:  6023 , excluded:  32 
+Pseudoliparis  In exclusion list:  470 , before exclusion: 11504 , after:  11034 , excluded:  470 
+[1] -0.2501514
+[1] -0.2706036
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 1, p-value = 0.5
+alternative hypothesis: true location shift is not equal to 0
+
+[1] 0.5213155
+[1] 0.5213155
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 3, p-value = 0.5
+alternative hypothesis: true location shift is not equal to 0
+
+[1] -0.2936162
+[1] -0.2826744
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 1, p-value = 0.5
+alternative hypothesis: true location shift is not equal to 0
+
+[1] 0.9922364
+[1] 0.9922364
+
+	Wilcoxon signed rank exact test
+
+data:  datCompareIntersectP$relaxP and datCompareIntersectP$intenseP
+V = 1, p-value = 1
+alternative hypothesis: true location shift is not equal to 0
+
+null device 
+          1 

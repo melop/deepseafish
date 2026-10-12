@@ -1,0 +1,5 @@
+taxon	count
+Coryphaenoides_yaquinae	1
+Coryphaenoides_armatus	1
+Coryphaenoides	3
+root	20

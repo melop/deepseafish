@@ -2028,6 +2028,7 @@ class RAXML {
 	const RAXML_OUT = "output";
         const TREE_FILE_NAME = "in.tre";
 	const RAXML_RET_PREFIX = "RAxML_bestTree";
+  const RAXML_RET_BRLEN_PREFIX = "RAxML_result";
 
 
 	public function SetAlignment($sAlg) {
@@ -2098,6 +2099,66 @@ class RAXML {
 		return array("Success"=>true, "Tree"=>$sTreeRet , "tmpfolder" => $this->sTempDir);
 
 	}
+ 
+ 	public function OptimzeBrLen($sModel, $bKeepTmpFolder = true) {
+
+ 		$this->nInstanceID = rand( 1000000 , 9999999) ;
+
+
+		$sTreeRet = "";
+		try {
+
+			if (!file_exists(BRLEN_TEMP_PATH)) {
+				mkdir(BRLEN_TEMP_PATH);
+			}
+		}
+		catch(Exception  $e) 
+		{}
+
+		$this->sTempDir = realpath(BRLEN_TEMP_PATH ). "/". $this->nInstanceID . "/";
+		mkdir($this->sTempDir);
+		chdir($this->sTempDir);
+
+		$hAln = fopen(RAXML::IN_FILE_NAME, "w");
+		fwrite($hAln , $this->sAlignment); 
+		fclose($hAln);
+
+		$sConstraintParam = '';
+		if ($this->sConstraintTree != '') {
+			$hConstraint = fopen(RAXML::IN_FILE_NAME . ".constraint.tre", "w");
+			fwrite($hConstraint , $this->sConstraintTree);
+			fclose($hConstraint);
+			$sConstraintParam = " -t \"". RAXML::IN_FILE_NAME . ".constraint.tre" ."\" ";
+		}
+
+		//Run RAxML
+		//raxmlHPC -s in.phy -m GTRGAMMA -n out -f a -x 23 -N 100
+
+		$sCmd = RAXML_PATH . " -T 2 $sConstraintParam -s \"". RAXML::IN_FILE_NAME . "\" -m $sModel -f e -n ".RAXML::RAXML_OUT;
+		echo("$sCmd \n");
+		exec( $sCmd );
+
+		$sRaxmlLnOut = RAXML::RAXML_RET_BRLEN_PREFIX.".".RAXML::RAXML_OUT;
+		if (!file_exists($sRaxmlLnOut )) {
+			echo("RAxML did not generate output $sRaxmlLnOut! ");
+			chdir(dirname(__FILE__) );
+			return array("Success"=>false, "Tree"=>"" , "tmpfolder" => $this->sTempDir);
+		}
+		else {
+			$sTreeRet = fnReadText($sRaxmlLnOut);
+		}
+		
+		
+		chdir(dirname(__FILE__) );
+
+		if (!$bKeepTmpFolder) {
+			rrmdir($this->sTempDir);//remove dir
+			}
+
+		return array("Success"=>true, "Tree"=>$sTreeRet , "tmpfolder" => $this->sTempDir);
+
+	}
+ 
 
 	public function GetTempDir() {
 			return $this->sTempDir;
@@ -3020,6 +3081,31 @@ function fnExcludeLastStop($arrFullCodingSeq) {
 	return $arrFullCodingSeq;
 
 }
+
+function fnMaskLastStop($arrFullCodingSeq) {
+
+	$bDoExclude = false; //if exclude for one taxon, also need to exclude others to make sure seq same length 
+
+	foreach($arrFullCodingSeq as $sTaxon => $sSeq) {
+		$sLastCodon = substr($sSeq , -3);
+		$sAAlast = fnDNA2Peptide($sLastCodon, false, false)[0];
+		if ($sAAlast == "*" ) {
+			$bDoExclude = true;
+		}
+	}
+
+	if ($bDoExclude) {
+	foreach($arrFullCodingSeq as $sTaxon => $sSeq) {
+
+		
+			$arrFullCodingSeq[$sTaxon] = substr($sSeq , 0, strlen($sSeq)-3)."NNN";
+	}
+	}
+	
+	return $arrFullCodingSeq;
+
+}
+
 
 function fnTranslateAlignment($arrAln, $bExcludeLastStop=false) {
 	
